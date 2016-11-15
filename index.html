@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/mdialog.css">
+
+</head>
+<body>
+
+<div class="main">
+	<header>
+		<img src="images/top.png">
+	</header>
+	<div class="px_wrap">
+		<div class="head_img">
+			<img src="">
+		</div>
+		<div class="px_leg l1 ">
+			<img src="images/l1.png">
+		</div>
+		<div class="px_leg r1 ">
+			<img src="images/r1.png">
+		</div>
+		<div class="px_leg l2 ">
+			<img src="images/l2.png">
+		</div>
+		<div class="px_leg r2 ">
+			<img src="images/r2.png">
+		</div>
+		<div class="px_leg l3">
+			<img src="images/l3.png">
+		</div>
+		<div class="px_leg r3">
+			<img src="images/r3.png">
+		</div>
+		<div class="px_leg l4">
+			<img src="images/l4.png">
+		</div>
+		<div class="px_leg r4">
+			<img src="images/r4.png">
+		</div>
+		<div class="px_leg l5">
+			<img src="images/l5.png">
+		</div>
+		<div class="px_leg r5">
+			<img src="images/r5.png">
+		</div>
+
+	</div>
+	<div class="main_1">
+		<h3>name</h3>
+		<h4>被剁<span id="leg-num">10</span>只爪</h4>
+		<div class="btn btn-get">
+			免费获得<span id="px-num">1</span>只阳澄湖大闸蟹
+		</div>
+		<div class="tip">
+			免费获得的大闸蟹在大闸蟹礼盒中减免现金
+		</div>
+		<div class="btn btn-look">
+			查看给我补刀的好友
+		</div>
+
+		<div class="friend_wrap">
+			<h3>
+				总计<span id='friend-num'>262</span>个好友给我剁爪补刀
+			</h3>
+			<div class="friend">
+				<div class="friend_list">
+					<div class="list_head">
+						10个好友补刀，我被剁爪一只
+					</div>
+					<ul>
+						<li>
+							<img src="images/nv.jpg">
+						</li>
+						<li>
+							<img src="images/nv.jpg">
+						</li>
+						<li>
+							<img src="images/nv.jpg">
+						</li>
+						<li>
+							<img src="images/nv.jpg">
+						</li>
+						<li>
+							<img src="images/nv.jpg">
+						</li>
+						<li>
+							<img src="images/nv.jpg">
+						</li>
+						<li>
+							<img src="images/nv.jpg">
+						</li>
+						<li>
+							<img src="images/nv.jpg">
+						</li>
+						<li>
+							<img src="images/nv.jpg">
+						</li>
+						<li>
+							<img src="images/nv.jpg">
+						</li>
+					</ul>
+				</div>
+				<div class="friend_list">
+					<div class="list_head">
+						再有2个好友补刀，我会被剁爪
+					</div>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+
+
+<script src="js/zepto.js"></script> 
+<script src="js/mdialog.js"></script>
+<script>
+
+
+Zepto(function($){
+	$.ajax({
+		url : "data.json",
+		type : "POST",
+		data : {},
+		dataType : "json",
+		success : function(data){
+			console.log(data)
+		}
+	})
+
+        var start = window.localStorage.getItem("start")
+        if(start == 1){
+            
+        }else{
+            new TipBox({type:'success',str:'',hasBtn:true});
+            window.localStorage.setItem("start",1)
+        }        	
+})
+
+$(".btn-look").click(function(){
+	$(".friend_wrap").toggle();
+})	
+</script>
+</body>
+
+</html>
